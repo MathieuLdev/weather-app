@@ -1,13 +1,10 @@
-import Weather from "./components/Weather";
-
+import Home from "./pages/Home";
 
 function App() {
 
 
     return (
-      <div>
-      <Weather />
-      </div>
+      <Home />
     );
   }
 
