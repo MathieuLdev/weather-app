@@ -1,5 +1,9 @@
-.home {
-   width: 60%;
-   height: 300px;
-   background: lightblue;
+.container {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   width: 300px;
+   margin: 50vh auto 0;
+   transform: translateY(-60%);
 }
+
