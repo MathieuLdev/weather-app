@@ -7,3 +7,56 @@
    transform: translateY(-60%);
 }
 
+.empty {
+   position: absolute;
+   display: none;
+   top: -30px;
+   left: 50%;
+   transform: translateX(-50%);
+   font-size: 1rem;
+   width: 300px;
+   text-align: center;
+   color: red;
+   animation: dongle 1s;
+}
+
+@keyframes dongle {
+   10% { margin-left: -10px }
+   30% { margin-left: 10px }
+   50% { margin-left: -10px }
+   70% { margin-left: 10px }
+   90% { margin-left: -10px }
+}
+
+.active {
+   visibility: visible;
+   display: block;
+}
+
+form {
+   display: flex;
+   flex-direction: column;
+}
+
+input[type='text'] {
+   padding-left: 6px;
+   height: 2rem;
+   border-bottom: 2px solid #212121;
+   background :rgba(0, 0, 0, 0);
+}
+
+input[type='submit'] {
+   border-radius: 20px;
+   border: 2px solid #212121;
+   transition: 0.2s ease-in;
+   width: 200px;
+   margin: 10px auto;
+   
+   &:active {
+      transform: scale(1.1);
+   }
+   
+   &:hover {
+      letter-spacing: 1px;
+   }
+}
