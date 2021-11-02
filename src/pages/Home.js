@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import apiKey from '../components/Api';
+import { isEmpty } from '../components/Utils';
 import Weather from '../components/Weather';
 
 const Home = () => {
@@ -8,13 +10,15 @@ const Home = () => {
  
    const displayWeather = (e) => {
       e.preventDefault();
+      setData();
       if (city === '') {
          document.querySelector('.empty').classList.add('active');
+         document.querySelector('.weather').classList.remove('active');
       } else {         
          document.querySelector('.weather').classList.add('active');
          document.querySelector('.empty').classList.remove('active');
 
-         const apiKey = '38927430cea36d378172a1106e55c374';
+
          fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiKey}&units=metric&lang=fr`)
          .then((res) => res.json())
          .then((data) => {
@@ -32,7 +36,7 @@ const Home = () => {
             <input type="submit" value="Valider" onClick={displayWeather}/>
          </form>
          <div className="weather">
-            { data ? <Weather data={data} /> : ""}
+            { !isEmpty(data) && data ? <Weather data={data} /> : ""}
          </div>
       </div>
    );
